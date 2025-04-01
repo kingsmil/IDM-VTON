@@ -1,0 +1,44 @@
+# requirements.txt
+
+# Core ML/Torch
+torch==2.0.1
+torchvision==0.15.2
+torchaudio==2.0.2
+# torchtriton # Usually included with torch, check if needed explicitly
+pytorch-cuda=11.8 # This isn't a pip package, handled by base image/Docker
+
+# Diffusers & Transformers
+accelerate==0.25.0
+transformers==4.36.2
+diffusers==0.25.0
+einops==0.7.0
+# bitsandbytes==0.39.0 # Optional, for 8-bit loading if needed
+
+# Image/CV
+opencv-python-headless # Use headless unless UI needed
+Pillow # Usually a dependency, good to list explicitly
+scipy==1.11.1
+fvcore # detectron2 dependency
+cloudpickle # detectron2 dependency
+pycocotools # detectron2 dependency
+
+# Web Framework & Server
+fastapi
+uvicorn[standard] # Installs standard dependencies like websockets, http-tools
+python-multipart # For form data/file uploads if needed later
+pydantic
+
+# Other Utilities
+tqdm==4.66.1
+omegaconf # densepose/detectron2 dependency
+basicsr # human parsing dependency? Check its requirements
+av # human parsing dependency? Check its requirements
+onnxruntime==1.16.2 # openpose dependency? Check its requirements
+numpy # Usually a dependency, good to list explicitly
+
+# Detectron2 - Install manually in Dockerfile (see below)
+
+# Add any specific versions needed by:
+# - preprocess.humanparsing.run_parsing
+# - preprocess.openpose.run_openpose
+# - src.tryon_pipeline and hacked unets
