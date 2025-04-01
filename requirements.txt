@@ -4,9 +4,6 @@
 torch==2.0.1
 torchvision==0.15.2
 torchaudio==2.0.2
-# torchtriton # Usually included with torch, check if needed explicitly
-pytorch-cuda=11.8 # This isn't a pip package, handled by base image/Docker
-
 # Diffusers & Transformers
 accelerate==0.25.0
 transformers==4.36.2
